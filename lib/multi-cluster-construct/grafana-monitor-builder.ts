@@ -141,6 +141,7 @@ export class GrafanaMonitoringConstruct {
             .version(eks.KubernetesVersion.V1_31)
             .resourceProvider(ampWorkspaceName, new blueprints.CreateAmpProvider(ampWorkspaceName, ampWorkspaceName))
             .withAmpProps(ampAddOnProps)
+            .withExternalSecretsProps({version: "0.18.2", hostedZoneResources: []})
             .enableOpenSourcePatternAddOns()
             .addOns(
                 ...addOns
